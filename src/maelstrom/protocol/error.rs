@@ -1,22 +1,16 @@
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Debug)]
-#[serde(tag = "type", rename = "error")]
-pub struct Error {
-    code: ErrorCode,
-    text: String,
-}
-
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub enum ErrorCode {
-    Timeout,
-    NodeNotFound,
-    NotSupported,
-    TemporarilyUnavailable,
-    MalformedRequest,
-    Crash,
-    Abort,
-    KeyDoesNotExist,
-    PreconditionFailed,
-    TxnConflict,
+    Timeout = 0,
+    NodeNotFound = 1,
+    NotSupported = 10,
+    TemporarilyUnavailable = 11,
+    MalformedRequest = 12,
+    Crash = 13,
+    Abort = 14,
+    KeyDoesNotExist = 20,
+    KeyAlreadyExists = 21,
+    PreconditionFailed = 22,
+    TxnConflict = 30,
 }
