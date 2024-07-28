@@ -1,4 +1,3 @@
-mod echo;
 mod maelstrom;
 
 use std::sync::atomic::{AtomicU32, Ordering};
